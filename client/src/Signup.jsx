@@ -15,7 +15,7 @@ function Signup() {
     axios.post("http://localhost:5000/register", { name, email, password })
       .then(result => {
         console.log(result);
-        navigate("/login"); // ✅ redirect after success
+        navigate("/login"); 
       })
       .catch(err => console.error(err));
   };
@@ -65,7 +65,7 @@ function Signup() {
             />
           </div>
 
-          {/* ✅ Submit Button */}
+        
           <div className='d-grid mt-2'>
             <button type="submit" className='btn btn-success'>
               Register
@@ -73,7 +73,6 @@ function Signup() {
           </div>
         </form>
 
-        {/* ✅ React Router Link */}
         <p className='text-center mt-3'>
           Already have an account?{" "}
           <Link to="/login" className='text-decoration-none'>

@@ -53,7 +53,6 @@ function Login() {
             />
           </div>
 
-          {/* ✅ Login Button */}
           <div className='d-grid mt-2'>
             <button type="submit" className='btn btn-success'>
               Login
@@ -61,7 +60,7 @@ function Login() {
           </div>
         </form>
 
-        {/* ✅ FIXED LINK */}
+        
         <p className='text-center mt-3'>
           Do not have an account?{" "}
           <Link to="/register" className='text-decoration-none'>
