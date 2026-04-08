@@ -15,6 +15,8 @@ function Login() {
       .then(result => {
         console.log(result);
         if (result.data === "Login successful")
+           localStorage.setItem("isAuth", "true");
+
         navigate("/home"); 
       })
       .catch(err => console.error(err));
