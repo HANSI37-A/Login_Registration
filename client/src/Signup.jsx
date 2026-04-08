@@ -9,8 +9,35 @@ function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // hadle validatiomn email and empty input and password length
+
+  function validate(){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
+      alert("All fields are required.");
+      return false;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return false;
+    }
+
+    return true;
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validate()) {
+      return;
+    }
 
     axios.post("http://localhost:5000/register", { name, email, password })
       .then(result => {
