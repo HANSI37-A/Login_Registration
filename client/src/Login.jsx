@@ -11,14 +11,16 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:5000/login", { email, password })
-      .then(result => {
-        console.log(result);
-        if (result.data === "Login successful")
-           localStorage.setItem("isAuth", "true");
+   axios.post("http://localhost:5000/login", { email, password })
+  .then(result => {
+    console.log(result);
 
-        navigate("/home"); 
-      })
+    // ✅ FIX HERE
+    if (result.data.token) {
+      localStorage.setItem("token", result.data.token);
+      navigate("/home");
+    }
+  })
       .catch(err => console.error(err));
   };
 
